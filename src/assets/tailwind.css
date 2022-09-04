@@ -21,6 +21,10 @@
   button {
     @apply outline-0;
   }
+
+  .constraint {
+    @apply container px-6 mx-auto;
+  }
 }
 
 @layer utilities {
