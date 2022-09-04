@@ -11,6 +11,11 @@ module.exports = {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
         migra: ["Migra", "sans-serif"],
+      },
+
+      colors: {
+        'dark': '#121212',
+        'light': '#FFFFFF',
       }
     },
   },
