@@ -1,11 +1,10 @@
 <script setup>
+import Navigation from './components/Navigation.vue';
 
 </script>
 
 <template>
-  <div class="font-sans text-7xl">
-    lmao
-  </div>
+  <Navigation />
 </template>
 
 <style lang="postcss" scoped>

@@ -1,3 +1,95 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  * {
+    transition: 500ms;
+    -webkit-transition: 500ms;
+    -moz-transition: 500ms;
+    -ms-transition: 500ms;
+    -o-transition: 500ms;
+  }
+
+  body {
+		@apply bg-white dark:bg-[#0D0D0D]
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    @apply outline-0;
+  }
+}
+
+@layer utilities {
+  .inline-start {
+    @apply inline-flex items-center justify-start;
+  }
+
+  .inline-center {
+    @apply inline-flex items-center justify-center;
+  }
+
+  .inline-end {
+    @apply inline-flex items-center justify-end;
+  }
+
+  .inline-between {
+    @apply inline-flex items-center justify-between;
+  }
+
+  .inline-evenly {
+    @apply inline-flex items-center justify-evenly;
+  }
+
+  .start {
+    @apply flex items-center justify-start;
+  }
+
+  .center {
+    @apply flex items-center justify-center;
+  }
+
+  .end {
+    @apply flex items-center justify-end;
+  }
+
+  .between {
+    @apply flex flex-row items-center justify-between;
+  }
+
+  .evenly {
+    @apply flex items-center justify-evenly;
+  }
+
+  .start-start {
+    @apply flex items-start justify-start;
+  }
+
+  /* Cols */
+  .col-start {
+    @apply flex flex-col items-start justify-center;
+  }
+
+  .col-start-start {
+    @apply flex flex-col items-start justify-start;
+  }
+
+  .col-center {
+    @apply flex flex-col items-center justify-center;
+  }
+
+  .col-center-start {
+    @apply flex flex-col items-center justify-start;
+  }
+
+  .col-end {
+    @apply flex flex-col items-end justify-center;
+  }
+
+  .col-between {
+    @apply flex flex-col items-start justify-between;
+  }
+}
