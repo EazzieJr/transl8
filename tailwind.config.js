@@ -11,11 +11,13 @@ module.exports = {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
         migra: ["Migra", "sans-serif"],
+        euclid: ["'Euclid Circular A'", "sans-serif"],
       },
 
       colors: {
         'dark': '#121212',
         'light': '#FFFFFF',
+        'explainer': '#666666'
       }
     },
   },

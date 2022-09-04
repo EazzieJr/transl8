@@ -5,3 +5,9 @@
   src: url("./fonts/Migra-Extrabold-800.otf") format("opentype");
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Euclid Circular A';
+  src: url("./fonts/Euclid-regular.ttf") format("true-type");
+  font-display: swap;
+}
