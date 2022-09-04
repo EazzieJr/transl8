@@ -8,7 +8,7 @@ import Twitter from './icons/Twitter.vue';
 
 <template>
 	<footer>
-		<h2>Don't be a <span>stranger</span></h2>
+		<h3>Don't be a <span>stranger</span></h3>
 
 		<div class="join">
 			<p>Join our social communities to keep up to date with our latest <br class="hidden md:block"> work and announcements.</p>
@@ -42,7 +42,7 @@ import Twitter from './icons/Twitter.vue';
 footer {
 	@apply px-5 lg:px-6;
 
-	h2 {
+	h3 {
 		@apply font-migra text-[10vw] xl:text-[11.2vw] text-dark dark:text-light text-center;
 
 		span {
