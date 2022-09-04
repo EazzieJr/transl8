@@ -29,7 +29,7 @@
 				@apply ml-5 text-xs lg:text-sm;
 			}
 			
-			/* animation: move 10s linear infinite; */
+			animation: move 30s linear infinite;
 
 			@keyframes move {
 				from {
@@ -37,7 +37,7 @@
 				}
 
 				to {
-					transform: translateX( calc( -634.21px * 9 ));
+					transform: translateX( calc( -634.21px * 4 ));
 
 				}
 			}
