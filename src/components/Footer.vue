@@ -40,7 +40,7 @@ import Twitter from './icons/Twitter.vue';
 
 <style lang="postcss" scoped>
 footer {
-	@apply px-5 lg:px-6;
+	@apply px-5 lg:px-6 pb-16 lg:pb-20 xl:pb-[100px];
 
 	h3 {
 		@apply font-migra text-[10vw] xl:text-[11.2vw] text-dark dark:text-light text-center;

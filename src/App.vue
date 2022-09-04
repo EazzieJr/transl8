@@ -31,6 +31,10 @@ import Github from './components/icons/Github.vue';
     </div>
   </div>
 
+  <div class="converters">
+
+  </div>
+
   <section class="translate-talk md:center constraint">
     <div class="image">
       <img src="./assets/svg/translate.svg" alt="">
@@ -46,6 +50,7 @@ import Github from './components/icons/Github.vue';
   </section>
   
   <MovingFollow />
+
   <Footer />
 </template>
 
@@ -79,7 +84,7 @@ import Github from './components/icons/Github.vue';
 }
   
 .translate-talk {
-  @apply mb-16 md:mb-20 lg:mb-24 xl:mb-32 space-y-14 md:space-x-24 xl:space-x-40 md:space-y-0;
+  @apply mb-24 lg:mb-28 xl:mb-40 space-y-14 md:space-x-24 xl:space-x-40 md:space-y-0;
   @apply mt-24 md:mt-32 lg:mt-40 xl:mt-72;
 
   .image {

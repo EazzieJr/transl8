@@ -21,12 +21,12 @@
 
 <style lang="postcss" scoped>
 	.moving-follow {
-		@apply overflow-hidden;
+		@apply overflow-hidden mb-20 lg:mb-24 xl:mb-28;
 		ul {
 			@apply flex items-center whitespace-nowrap list-disc text-dark dark:text-light;
 
 			li {
-				@apply ml-5;
+				@apply ml-5 text-xs lg:text-sm;
 			}
 			
 			/* animation: move 10s linear infinite; */
