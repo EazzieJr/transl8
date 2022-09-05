@@ -1,29 +1,20 @@
 <script setup>
-import { ref, computed, reactive } from 'vue';
+import { ref, computed } from 'vue';
 import Navigation from './components/Navigation.vue';
 import Footer from './components/Footer.vue';
 import MovingFollow from './components/MovingFollow.vue';
 import Github from './components/icons/Github.vue';
 
-const modalOpened = ref(false);
-const input = ref('');
 
-// A function to enable button if input is not empty
-// const engField = document.querySelector('#inputtext');
-// const engFieldVal = computed(() => engField.value);
 const translate = document.querySelector('.translate-now');
 
-
-
+const input = ref("");
 
 
 const isDisabled = computed(() => {
-  if (input) {
-    return true;
-  } else {
-    return false;
-  }
-});
+  if(input.value) return false;
+  else return true;
+})
 </script>
 
 <template>
@@ -65,7 +56,7 @@ const isDisabled = computed(() => {
         </div>
 
         <div class="bottom">
-          <textarea @input="isDisabled" v-model="input" name="inputtext" id="inputtext" placeholder="This is a dummy text that will be replaced by  your translated data and  will make you rather pleased"></textarea>
+          <textarea v-model="input" name="inputtext" id="inputtext" placeholder="This is a dummy text that will be replaced by  your translated data and  will make you rather pleased"></textarea>
 
           <div class="buttons between">
             <button class="info" @click="modalOpened = !modalOpened">
