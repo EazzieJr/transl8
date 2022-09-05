@@ -9,7 +9,7 @@ import Github from './components/icons/Github.vue';
 const translate = document.querySelector('.translate-now');
 
 const input = ref("");
-const output = ref("lmao");
+const output = ref("");
 
 
 
