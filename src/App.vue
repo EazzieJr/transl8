@@ -1,11 +1,11 @@
 <script setup>
+import { ref  } from 'vue';
 import Navigation from './components/Navigation.vue';
 import Footer from './components/Footer.vue';
 import MovingFollow from './components/MovingFollow.vue';
 import Github from './components/icons/Github.vue';
 
-
-
+const modalOpened = ref(true);
 </script>
 
 <template>
@@ -32,7 +32,7 @@ import Github from './components/icons/Github.vue';
   </div>
 
   <div class="converters constraint">
-    <form action="" class="">
+    <form @submit.prevent="submit" class="">
       <div class="english">
         <div class="top between">
           <div class="country-info">
@@ -50,7 +50,7 @@ import Github from './components/icons/Github.vue';
           <textarea name="inputtext" id="inputtext" placeholder="This is a dummy text that will be replaced by  your translated data and  will make you rather pleased"></textarea>
 
           <div class="buttons between">
-            <button class="info">
+            <button class="info" @click="modalOpened = !modalOpened">
               <svg width="57" height="56" class="dark:fill-white stroke-dark dark:stroke-light fill-light" viewBox="0 0 57 56" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="0.5" width="56" height="56" rx="28" class="fill-dark dark:fill-white"/>
                 <path d="M29.5445 33.0816L29.564 33.064L29.5816 33.0445C29.698 32.9152 29.8063 32.7657 29.8842 32.566C29.954 32.3964 30 32.2033 30 32C30 31.7941 29.9528 31.5988 29.8815 31.4277C29.8091 31.2538 29.7081 31.096 29.5816 30.9555L29.564 30.936L29.5445 30.9184C29.404 30.7919 29.2462 30.6909 29.0723 30.6185C28.7092 30.4672 28.2908 30.4672 27.9277 30.6185C27.7538 30.6909 27.596 30.7919 27.4555 30.9184L27.436 30.936L27.4184 30.9555C27.2919 31.096 27.1909 31.2538 27.1185 31.4277C27.0472 31.5988 27 31.7941 27 32C27 32.2033 27.046 32.3964 27.1158 32.566C27.1937 32.7657 27.302 32.9152 27.4184 33.0445L27.436 33.064L27.4555 33.0816C27.596 33.2081 27.7538 33.3091 27.9277 33.3815C28.0988 33.4528 28.2941 33.5 28.5 33.5C28.7059 33.5 28.9012 33.4528 29.0723 33.3815C29.2462 33.3091 29.404 33.2081 29.5445 33.0816ZM19 28C19 22.7661 23.2661 18.5 28.5 18.5C33.7339 18.5 38 22.7661 38 28C38 33.2339 33.7339 37.5 28.5 37.5C23.2661 37.5 19 33.2339 19 28ZM28.5 22.75C27.8139 22.75 27.25 23.3139 27.25 24V29C27.25 29.6861 27.8139 30.25 28.5 30.25C29.1861 30.25 29.75 29.6861 29.75 29V24C29.75 23.3139 29.1861 22.75 28.5 22.75Z" class="fill-white dark:fill-dark dark:stroke-dark stoke-white"/>
@@ -121,6 +121,45 @@ import Github from './components/icons/Github.vue';
   <MovingFollow />
 
   <Footer />
+
+  <div class="modal center" v-if="modalOpened">
+    <div class="popup">
+      <button class="close place-self-end" @click="modalOpened = !modalOpened">
+        <svg width="32" height="32" class="fill-[#24292E] dark:fill-[#D1D6DB]" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.0487 10.6344C11.6582 10.2438 11.025 10.2438 10.6345 10.6344C10.244 11.0249 10.244 11.6581 10.6345 12.0486L14.5857 15.9998L10.6345 19.951C10.244 20.3416 10.244 20.9747 10.6345 21.3652C11.025 21.7558 11.6582 21.7558 12.0487 21.3652L15.9999 17.414L19.9512 21.3652C20.3417 21.7558 20.9748 21.7558 21.3654 21.3652C21.7559 20.9747 21.7559 20.3416 21.3654 19.951L17.4141 15.9998L21.3654 12.0486C21.7559 11.6581 21.7559 11.0249 21.3654 10.6344C20.9748 10.2438 20.3417 10.2438 19.9512 10.6344L15.9999 14.5856L12.0487 10.6344Z"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M16 1.33334C7.89986 1.33334 1.33337 7.89983 1.33337 16C1.33337 24.1002 7.89986 30.6667 16 30.6667C24.1002 30.6667 30.6667 24.1002 30.6667 16C30.6667 7.89983 24.1002 1.33334 16 1.33334ZM3.33337 16C3.33337 9.0044 9.00443 3.33334 16 3.33334C22.9956 3.33334 28.6667 9.0044 28.6667 16C28.6667 22.9956 22.9956 28.6667 16 28.6667C9.00443 28.6667 3.33337 22.9956 3.33337 16Z"/>
+        </svg>
+      </button>
+
+      <div class="texts">
+        <h5>Feedback</h5>
+
+        <span>How has the experience using me been?</span>
+      </div>
+
+      <form @submit.prevent="submitForm">
+        <div class="input-text">
+          <p>
+            Do have a suggestion, did you find a bug somewhere on the platform or do you think this is not well done, please let me know in the box below.
+          </p>
+  
+          <textarea name=""></textarea>
+        </div>
+  
+        <button class="send">
+          <svg width="25" height="25" class="dark:fill-[#0D0D0D] fill-white" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21.8 13.063H18.32C17.34 13.063 16.47 13.603 16.03 14.483L15.19 16.143C14.99 16.543 14.59 16.793 14.15 16.793H10.87C10.56 16.793 10.12 16.723 9.83 16.143L8.99 14.493C8.55 13.623 7.67 13.073 6.7 13.073H3.2C2.81 13.073 2.5 13.383 2.5 13.773V17.033C2.5 20.663 4.68 22.833 8.32 22.833H16.7C20.13 22.833 22.24 20.953 22.5 17.613V13.763C22.5 13.383 22.19 13.063 21.8 13.063Z"/>
+            <path d="M13.25 4.64324L13.97 5.36324C14.12 5.51324 14.31 5.58324 14.5 5.58324C14.69 5.58324 14.88 5.51324 15.03 5.36324C15.32 5.07324 15.32 4.59324 15.03 4.30324L13.03 2.30324C13.02 2.29324 13.01 2.29324 13.01 2.28324C12.95 2.22324 12.87 2.17324 12.79 2.13324C12.78 2.13324 12.78 2.13324 12.77 2.12324C12.69 2.09324 12.61 2.08324 12.53 2.07324C12.5 2.07324 12.48 2.07324 12.45 2.07324C12.39 2.07324 12.33 2.09324 12.27 2.11324C12.24 2.12324 12.22 2.13324 12.2 2.14324C12.12 2.18324 12.04 2.22324 11.98 2.29324L9.97995 4.29324C9.68995 4.58324 9.68995 5.06324 9.97995 5.35324C10.27 5.64324 10.75 5.64324 11.04 5.35324L11.76 4.63324V5.83324H13.26V4.64324H13.25Z"/>
+            <path d="M22.5 11.643V11.683C22.28 11.603 22.04 11.563 21.8 11.563H18.32C16.77 11.563 15.38 12.423 14.69 13.803L13.94 15.283H11.08L10.33 13.813C9.64 12.423 8.25 11.563 6.7 11.563H3.2C2.96 11.563 2.72 11.603 2.5 11.683V11.643C2.5 8.00301 4.67 5.83301 8.31 5.83301H11.75V9.83301C11.75 10.243 12.09 10.583 12.5 10.583C12.91 10.583 13.25 10.243 13.25 9.83301V5.83301H16.69C20.33 5.83301 22.5 8.00301 22.5 11.643Z"/>
+          </svg>
+
+          <span>
+            Send feedback
+          </span>
+        </button>
+      </form>
+    </div>
+  </div>
 </template>
 
 <style lang="postcss" scoped>
@@ -254,6 +293,52 @@ import Github from './components/icons/Github.vue';
 
       span {
         @apply text-dark dark:text-light font-semibold
+      }
+    }
+  }
+}
+
+.modal {
+  @apply fixed top-0 right-0 bottom-0 left-0 px-4;
+  background: rgba(18, 18, 18, 0.2);
+  backdrop-filter: blur(8px);
+
+  .popup {
+    @apply bg-white dark:bg-[#0D0D0D] rounded-3xl lg:rounded-[40px] w-full mx-auto max-w-[800px] p-5 lg:p-10 grid grid-cols-1 h-fit;
+
+    .texts {
+      @apply mt-5 lg:mt-7 space-y-7 lg:space-y-10 text-center mb-7 lg:mb-10;
+
+      h5 {
+        @apply font-migra text-3xl lg:text-4xl xl:text-5xl text-dark dark:text-light uppercase;
+      }
+
+      span {
+        @apply font-sans text-dark dark:text-light font-semibold text-sm lg:text-xl xl:text-2xl;
+      }
+    }
+
+    form {
+      @apply space-y-10 lg:space-y-12 xl:space-y-[60px];
+
+      .input-text {
+        @apply space-y-5 lg:space-y-8 xl:space-y-10;
+
+        p {
+          @apply font-medium text-explainer text-xs lg:text-xl;
+        }
+
+        textarea {
+          @apply max-w-full min-w-full min-h-[180px] max-h-[180px] lg:max-h-[210px] xl:max-h-[240px] resize-none p-4 lg:p-5 border border-[#999999] bg-transparent
+        }
+      }
+
+      button {
+        @apply dark:bg-white bg-dark rounded-full p-3 lg:p-4 w-fit space-x-2 lg:space-x-2.5 text-white dark:text-dark flex items-center mx-auto;
+
+        svg {
+          @apply w-5 lg:w-6;
+        }
       }
     }
   }
