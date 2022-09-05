@@ -9,12 +9,29 @@ import Github from './components/icons/Github.vue';
 const translate = document.querySelector('.translate-now');
 
 const input = ref("");
+const output = ref("lmao");
 
 
-const isDisabled = computed(() => {
+
+const isTranslateDisabled = computed(() => {
   if(input.value) return false;
   else return true;
 })
+
+const isCopyDisabled = computed(() => {
+  if(output.value) return false;
+  else return true;
+})
+
+// A function to copy the output to the clipboard
+const copyToClipboard = () => {
+  const el = document.createElement('textarea');
+  el.value = output.value;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+}
 </script>
 
 <template>
@@ -66,7 +83,7 @@ const isDisabled = computed(() => {
               </svg>
             </button>
 
-            <button class="translate-now" :disabled="isDisabled">
+            <button class="translate-now" :disabled="isTranslateDisabled">
               <svg width="25" height="24" class="stroke-white dark:stroke-[#0D0D0D]" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.505 21.9842C18.0164 21.9842 22.4842 17.5164 22.4842 12.005C22.4842 6.49363 18.0164 2.02579 12.505 2.02579C6.99363 2.02579 2.52579 6.49363 2.52579 12.005C2.52579 17.5164 6.99363 21.9842 12.505 21.9842Z"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M6.63721 4.02161L14.8002 12.2046L14.8202 7.66402"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -93,16 +110,16 @@ const isDisabled = computed(() => {
         </div>
 
         <div class="bottom">
-          <textarea name="outputtext" id="outputtext" placeholder="This is a dummy text that will be replaced by  your translated data and  will make you rather pleased"></textarea>
+          <textarea name="outputtext" v-model="output" id="outputtext" disabled placeholder="This is a dummy text that will be replaced by  your translated data and  will make you rather pleased"></textarea>
 
           <div class="buttons between">
             <button>
             </button>
 
-            <button class="copy-text" disabled="false">
+            <button class="copy-text" :disabled="isCopyDisabled" @click="copyToClipboard">
               <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16.5 12.9833V17.1833C16.5 20.6833 15.1 22.0833 11.6 22.0833H7.4C3.9 22.0833 2.5 20.6833 2.5 17.1833V12.9833C2.5 9.48325 3.9 8.08325 7.4 8.08325H11.6C15.1 8.08325 16.5 9.48325 16.5 12.9833Z" fill="#0D0D0D" stroke="#0D0D0D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M22.5 6.98325V11.1833C22.5 14.6833 21.1 16.0833 17.6 16.0833H16.5V12.9833C16.5 9.48325 15.1 8.08325 11.6 8.08325H8.5V6.98325C8.5 3.48325 9.9 2.08325 13.4 2.08325H17.6C21.1 2.08325 22.5 3.48325 22.5 6.98325Z" stroke="#0D0D0D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16.5 12.9833V17.1833C16.5 20.6833 15.1 22.0833 11.6 22.0833H7.4C3.9 22.0833 2.5 20.6833 2.5 17.1833V12.9833C2.5 9.48325 3.9 8.08325 7.4 8.08325H11.6C15.1 8.08325 16.5 9.48325 16.5 12.9833Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22.5 6.98325V11.1833C22.5 14.6833 21.1 16.0833 17.6 16.0833H16.5V12.9833C16.5 9.48325 15.1 8.08325 11.6 8.08325H8.5V6.98325C8.5 3.48325 9.9 2.08325 13.4 2.08325H17.6C21.1 2.08325 22.5 3.48325 22.5 6.98325Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class=""/>
               </svg>
 
               <span>Copy text</span>
@@ -237,7 +254,7 @@ const isDisabled = computed(() => {
               @apply stroke-white dark:stroke-[#0D0D0D];
 
               path {
-                @apply first:fill-white first:dark:fill-[#0D0D0D]
+                @apply first:fill-white first:dark:fill-[#0D0D0D];
               }
             }
 
@@ -255,7 +272,6 @@ const isDisabled = computed(() => {
       }
     }
   }
-
 }
   
 .trnsl {
