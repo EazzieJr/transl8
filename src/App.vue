@@ -1,11 +1,29 @@
 <script setup>
-import { ref  } from 'vue';
+import { ref, computed, reactive } from 'vue';
 import Navigation from './components/Navigation.vue';
 import Footer from './components/Footer.vue';
 import MovingFollow from './components/MovingFollow.vue';
 import Github from './components/icons/Github.vue';
 
 const modalOpened = ref(false);
+const input = ref('');
+
+// A function to enable button if input is not empty
+// const engField = document.querySelector('#inputtext');
+// const engFieldVal = computed(() => engField.value);
+const translate = document.querySelector('.translate-now');
+
+
+
+
+
+const isDisabled = computed(() => {
+  if (input) {
+    return true;
+  } else {
+    return false;
+  }
+});
 </script>
 
 <template>
@@ -47,7 +65,7 @@ const modalOpened = ref(false);
         </div>
 
         <div class="bottom">
-          <textarea name="inputtext" id="inputtext" placeholder="This is a dummy text that will be replaced by  your translated data and  will make you rather pleased"></textarea>
+          <textarea @input="isDisabled" v-model="input" name="inputtext" id="inputtext" placeholder="This is a dummy text that will be replaced by  your translated data and  will make you rather pleased"></textarea>
 
           <div class="buttons between">
             <button class="info" @click="modalOpened = !modalOpened">
@@ -57,7 +75,7 @@ const modalOpened = ref(false);
               </svg>
             </button>
 
-            <button class="translate-now" disabled="false">
+            <button class="translate-now" :disabled="isDisabled">
               <svg width="25" height="24" class="stroke-white dark:stroke-[#0D0D0D]" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.505 21.9842C18.0164 21.9842 22.4842 17.5164 22.4842 12.005C22.4842 6.49363 18.0164 2.02579 12.505 2.02579C6.99363 2.02579 2.52579 6.49363 2.52579 12.005C2.52579 17.5164 6.99363 21.9842 12.505 21.9842Z"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M6.63721 4.02161L14.8002 12.2046L14.8202 7.66402"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -84,7 +102,7 @@ const modalOpened = ref(false);
         </div>
 
         <div class="bottom">
-          <textarea name="inputtext" id="inputtext" placeholder="This is a dummy text that will be replaced by  your translated data and  will make you rather pleased"></textarea>
+          <textarea name="outputtext" id="outputtext" placeholder="This is a dummy text that will be replaced by  your translated data and  will make you rather pleased"></textarea>
 
           <div class="buttons between">
             <button>
