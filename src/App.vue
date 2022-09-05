@@ -300,7 +300,7 @@ const isDisabled = computed(() => {
   @apply mt-24 md:mt-32 lg:mt-40 xl:mt-72;
 
   .image {
-    img {
+    svg {
       @apply w-72 md:min-w-[260px] min-h-[260px] lg:w-[320px] lg:h-[320px] xl:w-[437px] xl:h-[437px] mx-auto
     }
   }
