@@ -5,22 +5,35 @@ import Footer from './components/Footer.vue';
 import MovingFollow from './components/MovingFollow.vue';
 import Github from './components/icons/Github.vue';
 
-
+// Models for input and output texts
 const input = ref("");
 const output = ref("");
 
+// Model for the modal's feedback
+const feedback = ref(""); 
+
+const modalOpened = ref(false);
+
+// Computed to check if input is empty to enable/disable translate button
 const isTranslateDisabled = computed(() => {
   if(input.value) return false;
   else return true;
 })
 
+// Computed to check if input is empty to enable/disable copy button
 const isCopyDisabled = computed(() => {
   if(output.value) return false;
   else return true;
 })
 
+
 // A function to translate input text from english to danish
 const translate = () => {
+
+}
+
+// A function to submit feedback
+const submitFeedback = () => {
   
 }
 
@@ -58,8 +71,11 @@ const copyToClipboard = () => {
     </div>
   </div>
 
+   <!-- These are the input and output fields -->
   <div class="converters constraint">
-    <form @submit.prevent="submit" class="">
+    <form @submit.prevent="translate" class="">
+
+      <!-- Input field being English -->
       <div class="english">
         <div class="top between">
           <div class="country-info">
@@ -74,6 +90,7 @@ const copyToClipboard = () => {
         </div>
 
         <div class="bottom">
+          <!-- Input textarea -->
           <textarea v-model="input" name="inputtext" id="inputtext" placeholder="This is a dummy text that will be replaced by  your translated data and  will make you rather pleased"></textarea>
 
           <div class="buttons between">
@@ -97,6 +114,7 @@ const copyToClipboard = () => {
         </div>
       </div>
 
+      <!-- Output field being Danish -->
       <div class="danish">
         <div class="top between">
           <div class="country-info">
@@ -111,6 +129,7 @@ const copyToClipboard = () => {
         </div>
 
         <div class="bottom">
+          <!-- Output textarea -->
           <textarea name="outputtext" v-model="output" id="outputtext" disabled placeholder="This is a dummy text that will be replaced by  your translated data and  will make you rather pleased"></textarea>
 
           <div class="buttons between">
@@ -155,6 +174,7 @@ const copyToClipboard = () => {
 
   <Footer />
 
+  <!-- Modal -->
   <div class="modal center" v-if="modalOpened">
     <div class="popup">
       <button class="close place-self-end" @click="modalOpened = !modalOpened">
@@ -170,13 +190,14 @@ const copyToClipboard = () => {
         <span>How has the experience using me been?</span>
       </div>
 
-      <form @submit.prevent="submitForm">
+      <form @submit.prevent="submitFeedback">
         <div class="input-text">
           <p>
             Do have a suggestion, did you find a bug somewhere on the platform or do you think this is not well done, please let me know in the box below.
           </p>
   
-          <textarea name=""></textarea>
+          <!-- Input field for feedback -->
+          <textarea name="feedback" placeholder="Start typing..." v-model="feedback"></textarea>
         </div>
   
         <button class="send">
@@ -342,7 +363,7 @@ const copyToClipboard = () => {
       @apply mt-5 lg:mt-7 space-y-7 lg:space-y-10 text-center mb-7 lg:mb-10;
 
       h5 {
-        @apply font-migra text-3xl lg:text-4xl xl:text-5xl text-dark dark:text-light uppercase;
+        @apply font-migra text-3xl lg:text-4xl xl:text-5xl text-dark dark:text-light;
       }
 
       span {
