@@ -6,12 +6,8 @@ import MovingFollow from './components/MovingFollow.vue';
 import Github from './components/icons/Github.vue';
 
 
-const translate = document.querySelector('.translate-now');
-
 const input = ref("");
 const output = ref("");
-
-
 
 const isTranslateDisabled = computed(() => {
   if(input.value) return false;
@@ -22,6 +18,11 @@ const isCopyDisabled = computed(() => {
   if(output.value) return false;
   else return true;
 })
+
+// A function to translate input text from english to danish
+const translate = () => {
+  
+}
 
 // A function to copy the output to the clipboard
 const copyToClipboard = () => {
@@ -83,7 +84,7 @@ const copyToClipboard = () => {
               </svg>
             </button>
 
-            <button class="translate-now" :disabled="isTranslateDisabled">
+            <button class="translate-now" :disabled="isTranslateDisabled" @click="translate">
               <svg width="25" height="24" class="stroke-white dark:stroke-[#0D0D0D]" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.505 21.9842C18.0164 21.9842 22.4842 17.5164 22.4842 12.005C22.4842 6.49363 18.0164 2.02579 12.505 2.02579C6.99363 2.02579 2.52579 6.49363 2.52579 12.005C2.52579 17.5164 6.99363 21.9842 12.505 21.9842Z"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M6.63721 4.02161L14.8002 12.2046L14.8202 7.66402"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

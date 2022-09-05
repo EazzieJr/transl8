@@ -29,7 +29,7 @@
 				@apply ml-5 text-xs lg:text-sm;
 			}
 			
-			animation: move 30s linear infinite;
+			animation: move 50s linear infinite;
 
 			@keyframes move {
 				from {
